@@ -11,17 +11,10 @@ var config = {
     messagingSenderId: senderId
 };
 
-
-
-
-// браузер поддерживает уведомления
-// вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
 $(function() {
     if (!firebase.apps.length) {
         firebase.initializeApp(config);
     }
-
-    console.info(Notification.permission);
 
     if (Notification.permission === 'default') {
         subscribe();
@@ -66,7 +59,7 @@ function sendTokenToServer(currentToken) {
     if (!isTokenSentToServer(currentToken)) {
         console.log('Отправка токена на сервер...');
 
-        var url = ''; // адрес скрипта на сервере который сохраняет ID устройства
+        var url = '/Sender.php'; // адрес скрипта на сервере который сохраняет ID устройства
         $.post(url, {
             token: currentToken
         });
@@ -77,8 +70,6 @@ function sendTokenToServer(currentToken) {
     }
 }
 
-// используем localStorage для отметки того,
-// что пользователь уже подписался на уведомления
 function isTokenSentToServer(currentToken) {
     return window.localStorage.getItem('sentFirebaseMessagingToken') == currentToken;
 }
