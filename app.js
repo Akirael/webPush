@@ -23,8 +23,20 @@ $(function() {
     $('#subscribe').on('click', function () {
         subscribe();
     });
+    $('#send').on('click', function () {
+        send();
+    });
 
 })
+
+function send() {
+    $.ajax({
+        url: '/webPush/Sender.php',
+        data: {
+            'token' : getToken()
+        }
+    });
+}
 
 function subscribe() {
     // запрашиваем разрешение на получение уведомлений
@@ -59,7 +71,7 @@ function sendTokenToServer(currentToken) {
     if (!isTokenSentToServer(currentToken)) {
         console.log('Отправка токена на сервер...');
 
-        var url = '/webPush/Sender.php'; // адрес скрипта на сервере который сохраняет ID устройства
+        var url = ''; // адрес скрипта на сервере который сохраняет ID устройства
         $.post(url, {
             token: currentToken
         });
@@ -79,4 +91,8 @@ function setTokenSentToServer(currentToken) {
         'sentFirebaseMessagingToken',
         currentToken ? currentToken : ''
     );
+}
+
+function getToken() {
+    return window.localStorage.getItem('sentFirebaseMessagingToken');
 }
