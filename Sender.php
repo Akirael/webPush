@@ -11,7 +11,9 @@
 
 $url = 'https://fcm.googleapis.com/fcm/send';
 $YOUR_API_KEY = 'AIzaSyBrDMKfCzofzhXLlwGiwe9OtQ2_5PsWPJc';
-$YOUR_TOKEN_ID = $argv[1];
+//$YOUR_TOKEN_ID = $argv[1];
+$YOUR_TOKEN_ID = 'dmGCipKIoIU:APA91bEWoQzJeL5YCkPKuhki-yVlnqL7fEMoEKGEsiNcbdSCmrldFzCOCMWp1xpXUXTG3sxwULDlLVvNwq-0xFlCLqXfvX3P4Tk5ivOgdJ-WKgx2OaUGUMdsZC4qvrgLQ2OiHvsLkW_T';
+
 
 $request_body = [
     'to' => $YOUR_TOKEN_ID,

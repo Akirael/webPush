@@ -30,11 +30,23 @@ $(function() {
 })
 
 function send() {
-    $.ajax({
-        url: '/webPush/send.php',
-        data: {
-            'token' : getToken()
-        }
+    var key = 'AIzaSyBrDMKfCzofzhXLlwGiwe9OtQ2_5PsWPJc';
+    fetch('https://fcm.googleapis.com/fcm/send', {
+        'method': 'POST',
+        'headers': {
+            'Authorization': 'key=' + key,
+            'Content-Type': 'application/json'
+        },
+        'body': JSON.stringify({
+            'notification': {
+                "title": "Ералаш",
+                "body": "Начало через 15 минут",
+                "icon": "https://eralash.ru.rsz.io/sites/all/themes/eralash_v5/logo.png?width=192&height=192",
+                "click_action": "http://eralash.ru/"
+            },
+            "time_to_live": 900,
+            'to': 'dmGCipKIoIU:APA91bEWoQzJeL5YCkPKuhki-yVlnqL7fEMoEKGEsiNcbdSCmrldFzCOCMWp1xpXUXTG3sxwULDlLVvNwq-0xFlCLqXfvX3P4Tk5ivOgdJ-WKgx2OaUGUMdsZC4qvrgLQ2OiHvsLkW_T'
+        })
     });
 }
 
