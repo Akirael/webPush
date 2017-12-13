@@ -23,19 +23,14 @@ $(function() {
 
     console.info(Notification.permission);
 
-    if ('Notification' in window) {
-        // пользователь уже разрешил получение уведомлений
-        // подписываем на уведомления если ещё не подписали
-        if (Notification.permission === 'granted') {
-            subscribe();
-        }
-
-        // по клику, запрашиваем у пользователя разрешение на уведомления
-        // и подписываем его
-        $('#subscribe').on('click', function () {
-            subscribe();
-        });
+    if (Notification.permission === 'default') {
+        subscribe();
     }
+
+    $('#subscribe').on('click', function () {
+        subscribe();
+    });
+
 })
 
 function subscribe() {
