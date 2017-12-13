@@ -31,7 +31,7 @@ $(function() {
 
 function send() {
     $.ajax({
-        url: '/webPush/Sender.php',
+        url: '/webPush/send.php',
         data: {
             'token' : getToken()
         }
