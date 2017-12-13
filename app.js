@@ -32,7 +32,7 @@ $(function() {
 function send() {
     $.ajax({
         url: '/webPush/Sender.php',
-        type: POST,
+        type: 'POST',
         data: {
             'token' : getToken()
         }
