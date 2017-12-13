@@ -59,7 +59,7 @@ function sendTokenToServer(currentToken) {
     if (!isTokenSentToServer(currentToken)) {
         console.log('Отправка токена на сервер...');
 
-        var url = '/Sender.php'; // адрес скрипта на сервере который сохраняет ID устройства
+        var url = '/webPush/Sender.php'; // адрес скрипта на сервере который сохраняет ID устройства
         $.post(url, {
             token: currentToken
         });
