@@ -11,13 +11,15 @@ var config = {
     messagingSenderId: senderId
 };
 
-firebase.initializeApp(config);
+
 
 
 // браузер поддерживает уведомления
 // вообще, эту проверку должна делать библиотека Firebase, но она этого не делает
 $(function() {
-
+    if (!firebase.apps.length) {
+        firebase.initializeApp(config);
+    }
 
     if ('Notification' in window) {
         // пользователь уже разрешил получение уведомлений
