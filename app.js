@@ -21,6 +21,8 @@ $(function() {
         firebase.initializeApp(config);
     }
 
+    console.info(Notification.permission);
+
     if ('Notification' in window) {
         // пользователь уже разрешил получение уведомлений
         // подписываем на уведомления если ещё не подписали
