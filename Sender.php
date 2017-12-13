@@ -11,7 +11,7 @@
 
 $url = 'https://fcm.googleapis.com/fcm/send';
 $YOUR_API_KEY = 'AIzaSyBrDMKfCzofzhXLlwGiwe9OtQ2_5PsWPJc';
-$YOUR_TOKEN_ID = $_POST['token'];
+$YOUR_TOKEN_ID = isset($_POST['token']) ? $_POST['token'] : $_GET['token'];
 
 $request_body = [
     'to' => $YOUR_TOKEN_ID,
