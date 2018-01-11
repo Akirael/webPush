@@ -83,10 +83,12 @@ function sendTokenToServer(currentToken) {
     if (!isTokenSentToServer(currentToken)) {
         console.log('Отправка токена на сервер...');
 
-        var url = 'www.lwebpush.me/site/save'; // адрес скрипта на сервере который сохраняет ID устройства
-        $.post(url, {
-            token: currentToken
-        });
+        var url = 'http://www.lwebpush.me/site/save'; // адрес скрипта на сервере который сохраняет ID устройства
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        var message = 'tokken='+currentToken;
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(message);
 
         setTokenSentToServer(currentToken);
     } else {
