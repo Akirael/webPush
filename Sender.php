@@ -10,13 +10,16 @@
 <?php
 
 $url = 'https://fcm.googleapis.com/fcm/send';
-$YOUR_API_KEY = 'AIzaSyBrDMKfCzofzhXLlwGiwe9OtQ2_5PsWPJc';
-//$YOUR_TOKEN_ID = $argv[1];
-$YOUR_TOKEN_ID = 'dmGCipKIoIU:APA91bEWoQzJeL5YCkPKuhki-yVlnqL7fEMoEKGEsiNcbdSCmrldFzCOCMWp1xpXUXTG3sxwULDlLVvNwq-0xFlCLqXfvX3P4Tk5ivOgdJ-WKgx2OaUGUMdsZC4qvrgLQ2OiHvsLkW_T';
+$YOUR_API_KEY = 'AAAA4gkJDc0:APA91bGIVFzl2GRSPY7AgmvLL_2NVxNUGlX0d0MQWAyJ-_Ine6ZpKw7AEKMYTQNrLGuLF0-mTOaAART1MU5twHvTYV67FcEf2tAflDnQs4C--5SVrLkhXIQ61bWfFdnj0nVHMzFGJz_K';
+$YOUR_TOKEN_ID = array(
+    'eq58lZK7tHI:APA91bFAPprFr3WX_MsIel5yReEJf3fncPQdKG8lWlyOPybCRcrwiZmMso6ntXzVRcooUhKiQb13TS-Ejj6AruJnLTwUv-20OjUNPzJaH4tnHFo3jybsuasUhoaZ6g6XZvjkYtUysgJU',
+    'dmGCipKIoIU:APA91bEWoQzJeL5YCkPKuhki-yVlnqL7fEMoEKGEsiNcbdSCmrldFzCOCMWp1xpXUXTG3sxwULDlLVvNwq-0xFlCLqXfvX3P4Tk5ivOgdJ-WKgx2OaUGUMdsZC4qvrgLQ2OiHvsLkW_T'
+    );
 
-
+//
+//$YOUR_TOKEN_ID = json_encode($YOUR_TOKEN_ID);
 $request_body = [
-    'to' => $YOUR_TOKEN_ID,
+    'registration_ids' => $YOUR_TOKEN_ID,
     'notification' => [
         'title' => 'Ералаш',
         'body' => sprintf('Начало в %s.', date('H:i')),
